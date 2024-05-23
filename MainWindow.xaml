@@ -5,21 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment3._3._2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="534" Width="918">
+        Title="MainWindow" Height="560" Width="1500">
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="177.089" />
-            <RowDefinition Height="327.911"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="46.25" />
-            <ColumnDefinition Width="284.76"/>
+            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
 
-        <StackPanel Margin="0,30,0,30" Grid.ColumnSpan="2" Grid.RowSpan="2">
+        <StackPanel Margin="0,30,0,30" Grid.ColumnSpan="1" Grid.RowSpan="1">
             <Label HorizontalAlignment="right" FontSize="40">Student Id:</Label>
             <Label HorizontalAlignment="right" FontSize="40">First Name:</Label>
             <Label HorizontalAlignment="right" FontSize="40">Last Name:</Label>
@@ -28,7 +27,7 @@
             <Label HorizontalAlignment="right" FontSize="40">GPA:</Label>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Margin="285,30,0,30" Grid.ColumnSpan="2" Grid.RowSpan="2">
+        <StackPanel Grid.Column="1" Margin="0,30,0,30" Grid.ColumnSpan="1" Grid.RowSpan="1">
             <TextBox Margin="0, 10, 0, 0" Height="50" x:Name="txtStudentID" TextAlignment="Left" FontSize="30" />
             <TextBox Margin="0, 15, 0, 0" Height="50" x:Name="txtFirstName" TextAlignment="Left" FontSize="30" />
             <TextBox Margin="0, 15, 0, 0" Height="50" x:Name="txtLastName"  TextAlignment="Left" FontSize="30" />
@@ -36,7 +35,22 @@
             <TextBox Margin="0, 10, 0, 0" Height="50" x:Name="txtMonthOfAdmission" TextAlignment="Left" FontSize="30" />
             <TextBox Margin="0, 10, 0, 0" Height="50" x:Name="txtGPA" TextAlignment="Left" FontSize="30" />
 
-            <Button Margin="10" Height="50" Width="400" x:Name="btnAddStudent" Content="Add Student" Click="btnAddStudent_Click" />
+            <Button Margin="10" Height="50" Width="300" x:Name="btnAddStudent" Content="Add Student" Click="btnAddStudent_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Margin="10">
+            <ListView ItemsSource="{Binding Source{StaticResource.StudentList}}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Student ID" DisplayMemberBinding="{Binding Path=txtStudentID}" Width="100" />
+                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding Path=txtFirstName}" Width="100" />
+                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding Path=txtLastName}" Width="100" />
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=txtAddress}" Width="100" />
+                        <GridViewColumn Header="Admission Month" DisplayMemberBinding="{Binding Path=txtMonthOfAdmission}" Width="100" />
+                        <GridViewColumn Header="GPA" DisplayMemberBinding="{Binding Path=txtGPA}" Width="100" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
 
     </Grid>

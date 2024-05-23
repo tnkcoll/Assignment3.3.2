@@ -1,4 +1,5 @@
 ﻿using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,7 +31,7 @@ namespace Assignment3._3._2
             //Instantiate a new student object
             var student = new Student();
 
-            if(string.IsNullOrEmpty(this.txtStudentID.Text))
+            if (string.IsNullOrEmpty(this.txtStudentID.Text))
             {
                 MessageBox.Show("The student must have a first name", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -41,7 +42,7 @@ namespace Assignment3._3._2
                 student.StudentId = this.txtStudentID.Text;
             }
 
-            if(string.IsNullOrEmpty(this.txtFirstName.Text))
+            if (string.IsNullOrEmpty(this.txtFirstName.Text))
             {
                 MessageBox.Show("The student must have a first name", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
